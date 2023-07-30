@@ -17,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('auth.')->group(function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', [AuthController::class, 'login'])->name('login');
+        Route::get('/register', [AuthController::class, 'register'])->name('register');
+    });
     Route::post('/register', [AuthController::class, 'postRegister'])->name('postRegister');
     Route::post('/login', [AuthController::class, 'postLogin'])->name('postLogin');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('/home', [AuthController::class, 'redirect'])->name('redirect');
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,9 +58,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::name('speaker.')->prefix('speaker')->middleware(['role:1'])->group(function () {
         Route::get('/', [SpeakerController::class, 'dashboard'])->name('dashboard');
-
         Route::get('/dashboard', [SpeakerController::class, 'dashboard']);
 
+        Route::get('/waiting', function () {
+            return view('speaker.waiting');
+        })->name('waiting');
+
         Route::get('register', [UserController::class, 'SpeakerRegister'])->name('register');
+        Route::post('register', [UserController::class, 'postSpeakerRegister'])->name('postRegister');
     });
 });

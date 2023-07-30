@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="rounded-lg border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700">
-        <form>
+        <form id="registerForm" enctype="multipart/form-data">
             <!-- Section -->
             <div class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0">
                 <div class="sm:col-span-12 border-b">
@@ -11,6 +11,20 @@
                     </h2>
                 </div>
                 <!-- End Col -->
+
+                <div class="sm:col-span-12">
+                    <label for="af-submit-application-resume-cv"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Profile Picture
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-12">
+                    <label for="af-submit-application-resume-cv" class="sr-only">Choose file</label>
+                    <input type="file" name="profilePhoto" id="profilePhoto"
+                        class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 file:bg-transparent file:border-0 file:bg-gray-100 file:mr-4 file:py-2 file:px-3 dark:file:bg-gray-700 dark:file:text-gray-400">
+                </div>
 
                 <div class="sm:col-span-6">
                     <label for="af-submit-application-email" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
@@ -108,9 +122,6 @@
                 <div class="sm:col-span-6">
                     <select id="province" name="province"
                         class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected disabled>Select One</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
                     </select>
                 </div>
                 <!-- End Col -->
@@ -119,9 +130,6 @@
                 <div class="sm:col-span-6">
                     <select id="city" name="city"
                         class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected disabled>Select One</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
                     </select>
                 </div>
                 <!-- End Col -->
@@ -185,7 +193,7 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-12">
-                    <input type="text" id="cetificate-1" name="cetificate-1"
+                    <input type="text" id="certificate[]" name="certificate[]"
                         class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <!-- End Col -->
@@ -200,7 +208,7 @@
 
                 <div class="sm:col-span-12">
                     <label for="af-submit-application-resume-cv" class="sr-only">Choose file</label>
-                    <input type="file" name="certificatePhoto-1" id="certificatePhoto-1"
+                    <input type="file" name="certificatePhoto[]" id="certificatePhoto[]"
                         class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 file:bg-transparent file:border-0 file:bg-gray-100 file:mr-4 file:py-2 file:px-3 dark:file:bg-gray-700 dark:file:text-gray-400">
                 </div>
                 <!-- End Col -->
@@ -254,7 +262,7 @@
 
                 <div class="sm:col-span-12">
                     <label for="af-submit-application-resume-cv" class="sr-only">Choose file</label>
-                    <input type="file" name="documentationPhoto-1" id="documentationPhoto-1"
+                    <input type="file" name="documentationPhoto[]" id="documentationPhoto[]"
                         class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 file:bg-transparent file:border-0 file:bg-gray-100 file:mr-4 file:py-2 file:px-3 dark:file:bg-gray-700 dark:file:text-gray-400">
                 </div>
                 <!-- End Col -->
@@ -268,7 +276,7 @@
                 <!-- End Col -->
 
                 <div class="sm:col-span-12">
-                    <input type="text" id="documentation-1" name="documentation-1"
+                    <input type="text" id="documentation[]" name="documentation[]"
                         class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <!-- End Col -->
@@ -299,63 +307,12 @@
                 class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700">
                 <div class="sm:col-span-12">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                        Links
+                        Social Media Links
                     </h2>
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-12">
-                    <div class="flex">
-                        <input type="hidden" id="socialMediaName-1" name="socialMediaName-1" value="LinkedIn">
-                        <button id="socialMediaName-button-1" data-dropdown-toggle="dropdown-social"
-                            class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                            type="button">
-                            LinkedIn
-                            <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 1 4 4 4-4" />
-                            </svg>
-                        </button>
-                        <div id="dropdown-social"
-                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                                <li id="socialMedia-list">
-                                    <button type="button" id="twitter-1" onclick="changeSocial('Twitter', '1')"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Twitter
-                                    </button>
-                                    <button type="button" id="instagram-1" onclick="changeSocial('Instagram', '1')"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Instagram
-                                    </button>
-                                    <button type="button" id="facebook-1" onclick="changeSocial('Facebook', '1')"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Facebook
-                                    </button>
-                                    <button type="button" id="github-1" onclick="changeSocial('Github', '1')"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Github
-                                    </button>
-                                    <button type="button" id="other-1" onclick="changeSocial('Other', '1')"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                        Other
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="relative w-full">
-                            <input type="text" id="socialMediaLink-1"
-                                class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-md border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sm:col-span-12" id="socialMediaSection">
-
-                </div>
-
-                {{-- <div class="sm:col-span-3">
+                <div class="sm:col-span-3">
                     <label for="af-submit-application-linkedin-url"
                         class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                         LinkedIn URL
@@ -363,13 +320,13 @@
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-linkedin-url" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                <div class="sm:col-span-12">
+                    <input id="socialMediaLink-linkedIn" name="socialMediaLink-linkedIn" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-3">
+                <div class="sm:col-span-12">
                     <label for="af-submit-application-twitter-url"
                         class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                         Twitter URL
@@ -377,13 +334,39 @@
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-twitter-url" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                <div class="sm:col-span-12">
+                    <input id="socialMediaLink-twitter" name="socialMediaLink-twitter" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-3">
+                <div class="sm:col-span-12">
+                    <label for="af-submit-application-twitter-url"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Facebook URL
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-12">
+                    <input id="socialMediaLink-facebook" name="socialMediaLink-facebook" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+
+                <div class="sm:col-span-12">
+                    <label for="af-submit-application-twitter-url"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Instagram URL
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-12">
+                    <input id="socialMediaLink-instagram" name="socialMediaLink-instagram" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+
+                <div class="sm:col-span-12">
                     <label for="af-submit-application-github-url"
                         class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                         Github URL
@@ -391,27 +374,13 @@
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-github-url" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                <div class="sm:col-span-12">
+                    <input id="socialMediaLink-github" name="socialMediaLink-github" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-3">
-                    <label for="af-submit-application-portfolio-url"
-                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                        Portfolio URL
-                    </label>
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-portfolio-url" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-3">
+                <div class="sm:col-span-12">
                     <label for="af-submit-application-other-website"
                         class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                         Other website
@@ -419,11 +388,37 @@
                 </div>
                 <!-- End Col -->
 
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-other-website" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                <div class="sm:col-span-6">
+                    <label for="af-submit-application-other-website"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Website Name
+                    </label>
                 </div>
-                <!-- End Col --> --}}
+                <!-- End Col -->
+
+                <div class="sm:col-span-6">
+                    <label for="af-submit-application-other-website"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Website Link
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-6">
+                    <input id="socialMediaName[]" name="socialMediaName[]" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-6">
+                    <input id="socialMedialink[]" name="socialMedialink[]" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <!-- End Col -->
+
+                <div class="grid sm:grid-cols-12 gap-2 sm:gap-4 sm:col-span-12" id="socialMediaSection">
+
+                </div>
 
                 <div class="sm:col-span-12">
                     <button type="button" onclick="addSocialMediaForm()"
@@ -445,38 +440,38 @@
                 class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700">
                 <div class="sm:col-span-12">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                        Before sending your application, please let us know...
+                        Expertise
                     </h2>
                 </div>
                 <!-- End Col -->
 
+                <div class="grid sm:grid-cols-12 gap-2 sm:gap-4 sm:col-span-12" id="expertiseSection">
+                    <div class="sm:col-span-3">
+                        <select id="expertise[]" name="expertise[]"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected disabled>Select One</option>
+                            @foreach ($expertise as $expertie)
+                                <option value="{{ $expertie->id }}">{{ $expertie->expertiseName }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!-- End Col -->
+
+
+                </div>
+
                 <div class="sm:col-span-3">
-                    <label for="af-submit-application-desired-salary"
-                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                        Desired salary
-                    </label>
+                    <button type="button" onclick="addExpertise()"
+                        class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium">
+                        <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                        Add Expertise
+                    </button>
                 </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-desired-salary" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-3">
-                    <label for="af-submit-application-available-start-date"
-                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                        Available start date
-                    </label>
-                </div>
-                <!-- End Col -->
-
-                <div class="sm:col-span-9">
-                    <input id="af-submit-application-available-start-date" type="text"
-                        class="py-2 px-3 pr-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
-                </div>
-                <!-- End Col -->
             </div>
             <!-- End Section -->
 
@@ -493,19 +488,21 @@
                     If you are happy for us to do so please click the checkbox below.
                 </p>
 
-                <div class="mt-5 flex">
-                    <input type="checkbox"
-                        class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                        id="af-submit-application-privacy-check">
-                    <label for="af-submit-application-privacy-check"
-                        class="text-sm text-gray-500 ml-2 dark:text-gray-400">Allow
-                        us to process your personal
-                        information.</label>
+                <div class="relative">
+                    <div class="mt-5 flex">
+                        <input id="check" name="check" type="checkbox"
+                            class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                        <label for="af-submit-application-privacy-check"
+                            class="text-sm text-gray-500 ml-2 dark:text-gray-400">Allow
+                            us to process your personal
+                            information.</label>
+                    </div>
+                    <p class="text-xs hidden text-red-600 mt-2" id="check-error">You must agree to precess</p>
                 </div>
             </div>
             <!-- End Section -->
 
-            <button type="button"
+            <button type="submit"
                 class="py-3 px-4 w-full inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
                 Submit application
             </button>
@@ -516,88 +513,500 @@
         var Certificate = 1;
         var Documentation = 1;
         var SocialMedia = 1;
+        var Expertise = 1;
+        const ListOfProvinsi = [{
+                provinsi: 'Banten',
+                value: 'banten'
+            },
+            {
+                provinsi: 'DKI Jakarta',
+                value: 'dki'
+            },
+            {
+                provinsi: 'Jawa Barat',
+                value: 'jabar'
+            },
+            {
+                provinsi: 'Jawa Tengah',
+                value: 'jateng'
+            },
+            {
+                provinsi: 'Daerah Istimewa Yogyakarta',
+                value: 'yogya'
+            },
+            {
+                provinsi: 'Jawa Timur',
+                value: 'jatim'
+            },
+        ];
+
+        const ListOfCity = {
+            jatim: [{
+                    kota: 'Bangkalan'
+                },
+                {
+                    kota: 'Banyuwangi'
+                },
+                {
+                    kota: 'Blitar'
+                },
+                {
+                    kota: 'Bojonegoro'
+                },
+                {
+                    kota: 'Bondowoso'
+                },
+                {
+                    kota: 'Gresik'
+                },
+                {
+                    kota: 'Jember'
+                },
+                {
+                    kota: 'Jombang'
+                },
+                {
+                    kota: 'Kediri'
+                },
+                {
+                    kota: 'Lamongan'
+                },
+                {
+                    kota: 'Lumajang'
+                },
+                {
+                    kota: 'Madiun'
+                },
+                {
+                    kota: 'Magetan'
+                },
+                {
+                    kota: 'Malang'
+                },
+                {
+                    kota: 'Mojokerto'
+                },
+                {
+                    kota: 'Nganjuk'
+                },
+                {
+                    kota: 'Ngawi'
+                },
+                {
+                    kota: 'Pacitan'
+                },
+                {
+                    kota: 'Pamekasan'
+                },
+                {
+                    kota: 'Pasuruan'
+                },
+                {
+                    kota: 'Ponorogo'
+                },
+                {
+                    kota: 'Probolinggo'
+                },
+                {
+                    kota: 'Sampang'
+                },
+                {
+                    kota: 'Sidoarjo'
+                },
+                {
+                    kota: 'Situbondo'
+                },
+                {
+                    kota: 'Sumenep'
+                },
+                {
+                    kota: 'Trenggalek'
+                },
+                {
+                    kota: 'Tuban'
+                },
+                {
+                    kota: 'Tulungagung'
+                },
+                {
+                    kota: 'Kota Batu'
+                },
+                {
+                    kota: 'Kota Blitar'
+                },
+                {
+                    kota: 'Kota Kediri'
+                },
+                {
+                    kota: 'Kota Madiun'
+                },
+                {
+                    kota: 'Kota Malang'
+                },
+                {
+                    kota: 'Kota Mojokerto'
+                },
+                {
+                    kota: 'Kota Pasuruan'
+                },
+                {
+                    kota: 'Kota Probolinggo'
+                },
+                {
+                    kota: 'Kota Surabaya'
+                },
+            ],
+            jabar: [{
+                    kota: 'Kabupaten Bandung'
+                },
+                {
+                    kota: 'Kabupaten Bandung Barat'
+                },
+                {
+                    kota: 'Kabupaten Bekasi'
+                },
+                {
+                    kota: 'Kabupaten Bogor'
+                },
+                {
+                    kota: 'Kabupaten Ciamis'
+                },
+                {
+                    kota: 'Kabupaten Cianjur'
+                },
+                {
+                    kota: 'Kabupaten Cirebon'
+                },
+                {
+                    kota: 'Kabupaten Garut'
+                },
+                {
+                    kota: 'Kabupaten Indramayu'
+                },
+                {
+                    kota: 'Kabupaten Karawang'
+                },
+                {
+                    kota: 'Kabupaten Kuningan'
+                },
+                {
+                    kota: 'Kabupaten Majalengka'
+                },
+                {
+                    kota: 'Kabupaten Pangandaran'
+                },
+                {
+                    kota: 'Kabupaten Purwakarta'
+                },
+                {
+                    kota: 'Kabupaten Subang'
+                },
+                {
+                    kota: 'Kabupaten Sukabumi'
+                },
+                {
+                    kota: 'Kabupaten Sumedang'
+                },
+                {
+                    kota: 'Kabupaten Tasikmalaya'
+                },
+                {
+                    kota: 'Kota Bandung'
+                },
+                {
+                    kota: 'Kota Banjar'
+                },
+                {
+                    kota: 'Kota Bekasi'
+                },
+                {
+                    kota: 'Kota Bogor'
+                },
+                {
+                    kota: 'Kota Cimahi'
+                },
+                {
+                    kota: 'Kota Cirebon'
+                },
+                {
+                    kota: 'Kota Depok'
+                },
+                {
+                    kota: 'Kota Sukabumi'
+                },
+                {
+                    kota: 'Kota Tasikmalaya'
+                },
+            ],
+            jateng: [{
+                    kota: 'Kabupaten Banjarnegara'
+                },
+                {
+                    kota: 'Kabupaten Banyumas'
+                },
+                {
+                    kota: 'Kabupaten Batang'
+                },
+                {
+                    kota: 'Kabupaten Blora'
+                },
+                {
+                    kota: 'Kabupaten Boyolali'
+                },
+                {
+                    kota: 'Kabupaten Brebes'
+                },
+                {
+                    kota: 'Kabupaten Cilacap'
+                },
+                {
+                    kota: 'Kabupaten Demak'
+                },
+                {
+                    kota: 'Kabupaten Grobogan'
+                },
+                {
+                    kota: 'Kabupaten Jepara'
+                },
+                {
+                    kota: 'Kabupaten Karanganyar'
+                },
+                {
+                    kota: 'Kabupaten Kebumen'
+                },
+                {
+                    kota: 'Kabupaten Kendal'
+                },
+                {
+                    kota: 'Kabupaten Klaten'
+                },
+                {
+                    kota: 'Kabupaten Kudus'
+                },
+                {
+                    kota: 'Kabupaten Magelang'
+                },
+                {
+                    kota: 'Kabupaten Pati'
+                },
+                {
+                    kota: 'Kabupaten Pekalongan'
+                },
+                {
+                    kota: 'Kabupaten Pemalang'
+                },
+                {
+                    kota: 'Kabupaten Purbalingga'
+                },
+                {
+                    kota: 'Kabupaten Purworejo'
+                },
+                {
+                    kota: 'Kabupaten Rembang'
+                },
+                {
+                    kota: 'Kabupaten Semarang'
+                },
+                {
+                    kota: 'Kabupaten Sragen'
+                },
+                {
+                    kota: 'Kabupaten Sukoharjo'
+                },
+                {
+                    kota: 'Kabupaten Tegal'
+                },
+                {
+                    kota: 'Kabupaten Temanggung'
+                },
+                {
+                    kota: 'Kabupaten Wonogiri'
+                },
+                {
+                    kota: 'Kabupaten Wonosobo'
+                },
+                {
+                    kota: 'Kota Magelang'
+                },
+                {
+                    kota: 'Kota Pekalongan'
+                },
+                {
+                    kota: 'Kota Salatiga'
+                },
+                {
+                    kota: 'Kota Semarang'
+                },
+                {
+                    kota: 'Kota Surakarta'
+                },
+                {
+                    kota: 'Kota Tegal'
+                },
+            ],
+            yogya: [{
+                    kota: 'Kabupaten Bantul'
+                },
+                {
+                    kota: 'Kabupaten Gunungkidul'
+                },
+                {
+                    kota: 'Kabupaten Kulon Progo'
+                },
+                {
+                    kota: 'Kabupaten Sleman'
+                },
+                {
+                    kota: 'Kota Yogyakarta'
+                },
+            ],
+            dki: [{
+                    kota: 'Kepulauan Seribu'
+                },
+                {
+                    kota: 'Jakarta Barat'
+                },
+                {
+                    kota: 'Jakarta Pusat'
+                },
+                {
+                    kota: 'Jakarta Selatan'
+                },
+                {
+                    kota: 'Jakarta Timur'
+                },
+                {
+                    kota: 'Jakarta Utara'
+                },
+            ],
+            banten: [{
+                    kota: 'Kabupaten Lebak'
+                },
+                {
+                    kota: 'Kabupaten Pandeglang'
+                },
+                {
+                    kota: 'Kabupaten Serang'
+                },
+                {
+                    kota: 'Kabupaten Tangerang'
+                },
+                {
+                    kota: 'Kota Cilegon'
+                },
+                {
+                    kota: 'Kota Serang'
+                },
+                {
+                    kota: 'Kota Tangerang'
+                },
+                {
+                    kota: 'Kota Tangerang Selatan'
+                },
+            ],
+        };
 
         $(document).ready(function() {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
+            $.each(ListOfProvinsi, function(key, value) {
+                $('#province').append(`<option value="${value.value}">${value.provinsi}</option>`);
+            });
+            $('#city').append(`<option selected disabled>Select One</option>`);
+            $.each(ListOfCity.banten, function(key, value) {
+                $('#city').append(`<option value="${value.kota}">${value.kota}</option>`);
+            });
+
+            $('#province').change(function() {
+                var provinsi = $(this).val();
+                var city = ListOfCity[provinsi];
+                $('#city').empty();
+                $('#city').append(`<option selected disabled>Select One</option>`);
+                $.each(city, function(key, value) {
+                    $('#city').append(`<option value="${value.kota}">${value.kota}</option>`);
+                });
             });
         });
 
-        changeSocial = ($name, $id) => {
-            $('#socialMedia-list').append(
-                `
-                <button type="button" id="${socialMediaName}-${SocialMedia}" onclick="changeSocial('${socialMediaNameButton}', '${SocialMedia}')"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                    ${$name}
-                </button>
-              `
-            )
-            $(`#${socialMediaName}-${SocialMedia}`).remove();
-            $(`#socialMediaName-${$id}`).val($name);
-            $(`#socialMediaName-button-${$id}`).html(`
-                ${$name}
-                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="2" d="m1 1 4 4 4-4" />
-                </svg>
-            `);
+        $('#registerForm').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            if ($('#check').is(':checked')) {
+                $('#check-error').addClass('hidden');
+                $('#check').removeClass('border-red-500');
+                $('#check').addClass('border-gray-200');
+                $('#check').removeClass('dark:ring-red-500');
+                $('#check').addClass('dark:border-gray-700');
+                $.ajax({
+                    type: "POST",
+                    url: "{{ route('speaker.postRegister') }}",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        window.location.href = "{{ route('speaker.dashboard') }}";
+                    },
+                    error: function(response) {
+                        var error = $.parseJSON(response.responseText);
+                        $.each(error.errors, function(key, value) {
+                            alert(value)
+                        })
+                    }
+                });
+            } else {
+                $('#check-error').removeClass('hidden');
+                $('#check').removeClass('border-gray-200');
+                $('#check').addClass('border-red-500');
+                $('#check').removeClass('dark:border-gray-700');
+                $('#check').addClass('dark:ring-red-500');
+            }
+        });
+
+        addExpertise = () => {
+            Expertise++;
+            $('#expertiseSection').append(`
+          <div class="sm:col-span-3">
+              <select id="expertise[]" name="expertise[]"
+                  class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option selected disabled>Select One</option>
+                  @foreach ($expertise as $expertie)
+                      <option value="{{ $expertie->id }}">{{ $expertie->expertiseName }}</option>
+                  @endforeach
+              </select>
+          </div>
+          <!-- End Col -->
+          `);
         }
 
         addSocialMediaForm = () => {
             SocialMedia++;
             $('#socialMediaSection').append(`
-          <div class="sm:col-span-12">
-              <div class="flex">
-                  <input type="hidden" id="socialMediaName-${SocialMedia}" name="socialMediaName-${SocialMedia}">
-                  <button id="socialMediaName-button-${SocialMedia}" data-dropdown-toggle="dropdown-social-${SocialMedia}"
-                      class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                      type="button">
-                      LinkedIn
-                      <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                          fill="none" viewBox="0 0 10 6">
-                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                              stroke-width="2" d="m1 1 4 4 4-4" />
-                      </svg>
-                  </button>
-                  <div id="dropdown-social-${SocialMedia}"
-                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                      <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                          <li>
-                              <button type="button" id="twitter-${SocialMedia}" onclick="changeSocial('Twitter', '${SocialMedia}')"
-                                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                  Twitter
-                              </button>
-                              <button type="button" id="instagram-${SocialMedia}" onclick="changeSocial('Instagram', '${SocialMedia}')"
-                                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                  Instagram
-                              </button>
-                              <button type="button" id="facebook-${SocialMedia}" onclick="changeSocial('Facebook', '${SocialMedia}')"
-                                  class="block px
-                                  -4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                  Facebook
-                              </button>
-                              <button type="button" id="github-${SocialMedia}" onclick="changeSocial('Github', '${SocialMedia}')"
-                                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                  Github
-                              </button>
-                              <button type="button" id="other-${SocialMedia}" onclick="changeSocial('other', '${SocialMedia}')"
-                                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                                  Other
-                              </button>
-                          </li>
-                      </ul>
-                  </div>
-                  <div class="relative w-full">
-                      <input type="text" id="socialMediaLink-${SocialMedia}"
-                          class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-md border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500">
-                  </div>
-              </div>
-          </div>
-          <!-- End Col -->
-        `);
+            <div class="sm:col-span-6">
+                    <label for="af-submit-application-other-website"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Website Name
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-6">
+                    <label for="af-submit-application-other-website"
+                        class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                        Website Link
+                    </label>
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-6">
+                    <input id="socialMediaName[]" name="socialMediaName[]" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <!-- End Col -->
+
+                <div class="sm:col-span-6">
+                    <input id="socialMediaLink[]" name="socialMediaLink[]" type="text"
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <!-- End Col -->
+          `);
         }
 
         addDocumentationForm = () => {
@@ -621,7 +1030,7 @@
 
           <div class="sm:col-span-12">
               <label for="af-submit-application-resume-cv" class="sr-only">Choose file</label>
-              <input type="file" name="documentationPhoto-${Documentation}" id="documentationPhoto-${Documentation}"
+              <input type="file" name="documentationPhoto[]" id="documentationPhoto[]"
                   class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 file:bg-transparent file:border-0 file:bg-gray-100 file:mr-4 file:py-2 file:px-3 dark:file:bg-gray-700 dark:file:text-gray-400">
           </div>
           <!-- End Col -->
@@ -635,7 +1044,7 @@
           <!-- End Col -->
 
           <div class="sm:col-span-12 mb-5">
-              <input type="text" id="documentation-${Documentation}" name="documentation-${Documentation}"
+              <input type="text" id="documentation-[]" name="documentation-[]"
                   class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <!-- End Col -->
@@ -663,7 +1072,7 @@
           <!-- End Col -->
 
           <div class="sm:col-span-12">
-              <input type="text" id="cetificate-${Certificate}" name="cetificate-${Certificate}"
+              <input type="text" id="certificate[]" name="certificate[]"
                   class="block w-full p-2 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <!-- End Col -->
@@ -678,7 +1087,7 @@
 
           <div class="sm:col-span-12 mb-5">
               <label for="af-submit-application-resume-cv" class="sr-only">Choose file</label>
-              <input type="file" name="certificatePhoto-${Certificate}" id="certificatePhoto-${Certificate}"
+              <input type="file" name="certificatePhoto[]" id="certificatePhoto[]"
                   class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 file:bg-transparent file:border-0 file:bg-gray-100 file:mr-4 file:py-2 file:px-3 dark:file:bg-gray-700 dark:file:text-gray-400">
           </div>
           <!-- End Col -->

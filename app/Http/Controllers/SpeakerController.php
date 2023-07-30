@@ -18,11 +18,11 @@ class SpeakerController extends Controller
             if (Speaker::where('user_id', $user->id)->first() == null) {
                 return redirect()->route('speaker.register');
             } else if ($user->isActive == 0) {
-                return redirect()->route('ban');
+                return redirect()->route('speaker.waiting');
             } else if ($user->isActive == 2) {
                 return redirect()->route('ban');
             }
-            
+
             return $next($request);
         });
     }

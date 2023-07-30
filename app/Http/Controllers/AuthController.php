@@ -91,4 +91,15 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+    function redirect()
+    {
+        if (Auth::user()->role == 0) {
+            return redirect()->route('home');
+        } else if (Auth::user()->role == 1) {
+            return redirect()->route('speaker.dashboard');
+        } else if (Auth::user()->role == 2) {
+            return redirect()->route('admin.dashboard');
+        }
+    }
 }
